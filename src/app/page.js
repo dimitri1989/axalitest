@@ -1,95 +1,38 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+// src/app/page.js
 
-export default function Home() {
+import CitySelect from '@/components/citySelect';
+
+async function getWeatherData(city) {
+  //console.log(city);
+  const res = await fetch(`http://localhost:3000/api/weather?city=${city}`, {
+    next: { revalidate: 60 }, // Optional: Set revalidation interval
+  });
+  if (!res.ok) {
+    throw new Error('Failed to fetch weather data');
+  }
+  const { weatherData } = await res.json();
+  //console.log(weatherData );
+  return weatherData;
+}
+
+export default async function HomePage() {
+  const city = 'tbilisi'; // Change this to dynamically get the city if needed
+  let weatherData = null;
+  try {
+    weatherData = await getWeatherData(city);
+  } catch (error) {
+    console.error('Error fetching weather data:', error);
+  }
+
+  if (!weatherData) {
+    return <div>Error loading weather data</div>;
+  }
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    <div>
+      <h1>Weather in Tbilisi</h1>
+      <p>Temperature: {weatherData.current.temp_c}°C</p>
+      <p>Weather: {weatherData.current.condition.text}</p>
+    </div>
   );
 }
