@@ -1,4 +1,3 @@
-
 *,
 *::before,
 *::after {
@@ -13,12 +12,12 @@
   src: url('./fonts/arial/bpg_mrgvlovani_caps_2010.ttf');
 }
 :root {
-  --main-color: #e66725; /* მუქი სტაფილოსფერი */
-  --secondary-color: #FF8A42; /* ღია სტაფილოსფერი */
-  --text-color: #FFFFFF; /* თეთრი */
+  --main-color: #0f4779; /* მუქი სტაფილოსფერი */
+  --secondary-color: #2a69a4; /* ღია სტაფილოსფერი */
+  --text-color: #ffffff; /* თეთრი */
   --second-family: 'BPG-mgrmlovani', sans-serif;
-  --main-font:'BPG-Arial', sans-serif;
-  
+  --main-font: 'BPG-Arial', sans-serif;
+  --windMenu: #4b84af;
 }
 body {
   background: var(--secondary-color);
@@ -34,25 +33,342 @@ header {
   padding: 0;
 }
 
-
-.navContainer{
+.navContainer {
   padding: 0;
 }
 nav a:hover {
   text-decoration: underline;
 }
 
-.navbar-expand-lg .navbar-nav .nav-link{
+.navbar-expand-lg .navbar-nav .nav-link {
   color: #fff;
   text-decoration: none;
 }
-.container .nav-link:hover{
-  color:#eab8b8;
+.container .nav-link:hover {
+  color: #eab8b8;
 }
 /*main start*/
-main{
+main {
   padding: 0;
 }
-.next{
+.next {
   background-color: #23a728;
+}
+
+/*header city search*/
+.form-control {
+  width: 50%;
+}
+.select-contanier {
+}
+.city_select {
+  cursor: pointer;
+  width: 100%;
+}
+.pos {
+  position: relative;
+  top: 12px;
+  right: 19px;
+  z-index: 2;
+  color: rgb(0, 0, 0);
+}
+.citySearch {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  margin-bottom: 5px;
+}
+form {
+  position: relative;
+}
+input {
+  border: 0;
+  padding-left: 10px;
+  height: 37px;
+  border-radius: 10px;
+}
+.IoIosSearch {
+  position: absolute;
+  top: 8px;
+  right: 18px;
+  z-index: 10;
+  font-size: 25px;
+}
+.IoIosSearch:hover {
+  color: #416f72;
+}
+.subbutton {
+  background: none;
+  border: 0;
+}
+.cityName {
+  font-size: 29px;
+  margin-top: 10px;
+}
+.today-text {
+  font-size: 15px;
+  font-family: var(--main-font);
+}
+.today-time {
+  font-size: 13px;
+  margin-bottom: 30px;
+}
+.today-C {
+  font-size: 20px;
+}
+.today-span {
+  font-size: 70px;
+  line-height: 1;
+}
+.icon-main {
+  max-height: 100%;
+  max-width: 100%;
+}
+.icon-main img {
+  width: 100%;
+}
+.bgcolor-left {
+  background-color: #5e8fbe47;
+  border-radius: 5px;
+}
+.today-min {
+  font-family: var(--main-font);
+}
+.today-min span {
+  font-size: 8px;
+}
+.text-min-max {
+  display: flex;
+  justify-content: space-around;
+}
+.today-info {
+  font-family: var(--main-font);
+}
+.day-details {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  background-color: #508cb9;
+  width: 90%;
+  border: 0;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  transition: background-color 0.7s;
+  -webkit-transition: background-color 0.7s;
+  transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+}
+.day-details:hover {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  background-color: #8eb6d3;
+  width: 90%;
+  border: 0;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+hr {
+  width: 100%;
+}
+.left-time {
+  font-size: 16px;
+}
+.today-hours {
+  font-size: 16px;
+}
+.left-temp {
+  font-size: 16px;
+}
+.left-hourly-img img {
+  width: 60px;
+}
+.left-day-details {
+  color: white;
+  text-decoration: none;
+}
+.left-day-details:hover {
+  color: #d7d7d7;
+  text-decoration: none;
+}
+.left-day-details2 {
+  color: white;
+  text-decoration: none;
+  font-family: var(--main-font);
+}
+/*start animation*/
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/*end animation*/
+.left-menu__iconWeather {
+  height: 140px;
+  width: 90px;
+  position: relative;
+}
+.left-menu__iconWeather-img {
+  background: url('/2.png') no-repeat;
+  width: 50%;
+  height: 65px;
+}
+.left-menu__iconWeather-img2 {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  width: 74px;
+  height: 74px;
+  -webkit-animation: spin 2s linear infinite;
+  -moz-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  background: url('/1.png') no-repeat;
+}
+.left-menu__wheaterInfo {
+  margin-left: 17px;
+  margin-top: 10px;
+}
+.left-menu__wheatewnevaIcon {
+  font-size: 32px;
+}
+.wneva-text {
+  font-family: var(--main-font);
+  color: #cce2f3;
+  font-size: 14px;
+}
+.left-menu__speed {
+  margin-left: 10px;
+  padding-top: 20px;
+}
+.left-menu {
+  background: var(--windMenu);
+  border-radius: 10px;
+}
+.right-sunContainer {
+  background: var(--windMenu);
+  border-radius: 5px;
+}
+.FaRadiation {
+  font-size: 25px;
+}
+.radiacia {
+  font-size: 16px;
+  text-decoration: underline;
+}
+.sun-text {
+  font-size: 12px;
+}
+.right-sun {
+  border-radius: 5px;
+  background: var(--windMenu);
+  border: #c3d4e5 dashed 1px;
+}
+.radiaciauv {
+  font-size: 14px;
+  text-align: center;
+}
+.day12Right {
+  font-size: 1.7rem;
+}
+.weater-list li {
+  list-style: none;
+  padding: 5px;
+}
+.weather-info {
+  background: #4480ad70;
+  margin-bottom: 10px;
+  border-radius: 9px;
+  text-align: center;
+}
+.weather-info:hover{
+  background: #6998bb70;
+  cursor: pointer;
+}
+.weather-info__day {
+  font-family: var(--second-family);
+  margin: 0;
+  padding-top: 17px;
+}
+.weather-info__dayNum {
+  font-family: var(--main-font);
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.weather-info__temp {
+  text-align: center;
+  padding-bottom: 17px;
+}
+.weather-info__temp__text {
+  font-size: 23px;
+}
+.footer-text{
+  max-width: 300px;
+}
+@media only screen and (max-width: 1200px) {
+  /* .cities-class {
+    flex-direction: column-reverse;
+  } */
+  .radiacia {
+    font-size: 12px;
+  }
+  .sun-m {
+    margin-bottom: 15px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .left-menu__wheaterInfo {
+    margin-left: 3px;
+    margin-top: 10px;
+  }
+  .wneva-text2 {
+    font-size: 10px;
+  }
+  .wneva-text3 {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .cities-class {
+    flex-direction: column-reverse;
+  }
+  .left-menu__speed {
+    margin-left: 50px;
+    padding-top: 20px;
+  }
+  .right-sunContainer {
+    margin-top: 16px;
+  }
+  .left-menu__wheaterInfo {
+    margin-left: 19px;
+    margin-top: 10px;
+  }
+  .wneva-text2 {
+    font-size: 14px;
+  }
+  .wneva-text3 {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .cities-class {
+    flex-direction: column-reverse;
+  }
+  .navbar-expand-lg{
+    padding: 10px!important;
+  }
 }

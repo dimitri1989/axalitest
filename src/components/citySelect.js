@@ -1,10 +1,11 @@
 // components/CitySelect.js
 'use client'
+import { IoIosArrowDown } from "react-icons/io";
 import { useRouter } from 'next/navigation';
 import { useState,useEffect } from "react";
 
 const cities = [
-  { value: "/city", label: "აირჩიე ქალაქი" },
+ 
   { value: "/abastumani", label: "აბასთუმანი" },
   { value: "/adigeni", label: "ადიგენი" },
   { value: "/anaklia", label: "ანაკლია" },
@@ -55,11 +56,12 @@ const cities = [
   { value: "/tskhinvali", label: "ცხინვალი" },
   { value: "/tsinandali", label: "წინანდალი" },
   { value: "/tskneti", label: "წყნეთი" },
+  { value: "/tsaghveri", label: "წაღვერი" },
   { value: "/chiatura", label: "ჭიათურა" },
   { value: "/kharagauli", label: "ხარაგაული" },
   { value: "/khashuri", label: "ხაშური" },
   { value: "/khobi", label: "ხობი" },
-  { value: "/khoni", label: "ხონი" },
+  { value: "/dmanisi", label: "დმანისი" },
 ];
 
 export default function CitySelect({defaultCity }) {
@@ -78,10 +80,11 @@ export default function CitySelect({defaultCity }) {
   };
 
   return (
-    <select
+    <div className="select-contanier d-flex">
+    <select title="აირჩიე ქალაქი"
       aria-label="select"
       onChange={handleChange}
-      className="form-control city_select"
+      className="form-control city_select focus-ring"
       data-style="btn-default"
       data-live-search="true"
       value={`/${currentCity}`}
@@ -92,6 +95,9 @@ export default function CitySelect({defaultCity }) {
           {city.label}
         </option>
       ))}
+      
     </select>
+    <IoIosArrowDown className="pos" />
+    </div>
   );
 }
