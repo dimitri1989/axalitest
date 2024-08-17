@@ -35,7 +35,7 @@ const adress = [];
 async function getWeatherData(city, days) {
   
   const coordinates = getCityCoordinates(decodeURIComponent(city));
-  const res = await fetch(`http://localhost:3000/api/weather/${coordinates}/${days}`);
+  const res = await fetch(`/api/weather/${city}/${days}`);
   if (!res.ok) {
     notFound();
   }
