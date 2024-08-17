@@ -35,7 +35,7 @@ const adress = [];
 async function getWeatherData(city, days) {
   
   const coordinates = getCityCoordinates(decodeURIComponent(city));
-  const res = await fetch(`/api/weather/${city}/${days}`);
+  const res = await fetch(`https://axalitest.vercel.app/api/weather/${coordinates}/${days}`);
   if (!res.ok) {
     notFound();
   }

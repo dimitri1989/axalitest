@@ -16,7 +16,7 @@ import data from './data/data';
 
 async function getWeatherData(city, days) {
   //console.log(city,"2",days);
-  const res = await fetch(`/api/weather/${city}/${days}`, {
+  const res = await fetch(`https://axalitest.vercel.app/api/weather/${city}/${days}`, {
     next: { revalidate: 0 }, // Optional: Set revalidation interval
   });
   if (!res.ok) {

@@ -78,7 +78,7 @@ async function getWeatherData(city, days) {
     throw new Error('ქალაქი არ მოიძებნა ან არ არის მხარდაჭერილი');
   }
   araayOfaddres.push(days.split('-')[0]);
-  const res = await fetch(`/api/weather/${coordinates}/${days}`, {
+  const res = await fetch(`https://axalitest.vercel.app/api/weather/${coordinates}/${days}`, {
     next: { revalidate: 21600 }, // Optional: Set revalidation interval
   });
   if (!res.ok) {
