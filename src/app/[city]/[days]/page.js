@@ -79,7 +79,7 @@ async function getWeatherData(city, days) {
   }
   araayOfaddres.push(days.split('-')[0]);
   const res = await fetch(`https://axalitest.vercel.app/api/weather/${coordinates}/${days}`, {
-    next: { revalidate: 21600 }, // Optional: Set revalidation interval
+    next: { revalidate: 0 }, // Optional: Set revalidation interval
   });
   if (!res.ok) {
     throw new Error('Failed to fetch weather data');
@@ -591,4 +591,4 @@ export default async function WeatherPage({ params }) {
   );
 }
 
-export const revalidate = 0; // Revalidate every hour
+export const revalidate =0; // Revalidate every hour
