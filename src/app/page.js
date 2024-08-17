@@ -541,4 +541,4 @@ export default async function HomePage() {
     </div>
   );
 }
-export const revalidate = 21600; // Revalidate every hour
+export const revalidate = 0; // Revalidate every hour
