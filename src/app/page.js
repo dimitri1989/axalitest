@@ -1,4 +1,4 @@
-export const dynamic = "force-dynamic"
+//export const dynamic = "force-dynamic"
 import { WiDayWindy } from 'react-icons/wi';
 import { GiSpeedometer } from 'react-icons/gi';
 import { GiTimeSynchronization } from 'react-icons/gi';

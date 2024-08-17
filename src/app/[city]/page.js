@@ -493,4 +493,4 @@ export default async function WeatherPage({ params }) {
   );
 }
 
-export const revalidate = 21600; // Revalidate every hour
+export const revalidate = 0; // Revalidate every hour
